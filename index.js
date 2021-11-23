@@ -180,6 +180,7 @@ discordClient.on('message', async (msg) => {
         if (msg.content.trim().toLowerCase() == _CMD_JOIN) {
             if (!msg.member.voice.channelID) {
                 msg.reply('Error: please join a voice channel first.')
+                client.channels.cache.get('912591223880028210').send('Hello here!')
             } else {
                 if (!guildMap.has(mapKey))
                     await connect(msg, mapKey)
