@@ -189,9 +189,9 @@ discordClient.on('message', async (msg) => {
                 if (!guildMap.has(mapKey))
                     await connect(msg, mapKey)
                 else
-                    let succ01 = 'Already connected'
+                    var succ01 = 'Already connected'
                     msg.reply(succ01)
-                    let succ1Channel = client.channels.cache.get('912591223880028210');
+                    var succ1Channel = client.channels.cache.get('912591223880028210');
                     if (succ1Channel) {
                         succ1Channel.send(succ01)
                     }
