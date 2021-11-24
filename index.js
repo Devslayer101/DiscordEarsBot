@@ -180,7 +180,7 @@ discordClient.on('message', async (msg) => {
         if (msg.content.trim().toLowerCase() == _CMD_JOIN) {
             if (!msg.member.voice.channelID) {
                let error01 = 'Error: please join a voice channel first.'
-                msg.reply(error01)
+                msg.reply('Error: please join a voice channel first.')
                let error1Channel = client.channels.cache.get('912591223880028210');
                if (error1Channel) {
                    error1Channel.send(error01)
@@ -189,8 +189,12 @@ discordClient.on('message', async (msg) => {
                 if (!guildMap.has(mapKey))
                     await connect(msg, mapKey)
                 else
-                    msg.reply('Already connected')
-            }
+                    let succ01 = 'Already connected'
+                    msg.reply(succ01)
+                    let succ1Channel = client.channels.cache.get('912591223880028210');
+                    if (succ1Channel) {
+                        succ1Channel.send(succ01)
+                    }
         } else if (msg.content.trim().toLowerCase() == _CMD_LEAVE) {
             if (guildMap.has(mapKey)) {
                 let val = guildMap.get(mapKey);
